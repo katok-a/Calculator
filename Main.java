@@ -14,10 +14,7 @@ public class Main {
         System.out.println("Enter operation symbol");
         String operator = scan.nextLine();
 
-        Formula formula = new Formula();
-        formula.setX(firstNumber);
-        formula.setY(secondNumber);
-        formula.setOp(operator);
+        Formula formula = new Formula(firstNumber, secondNumber, operator);
 
         Calculators cal = new Calculators();
 

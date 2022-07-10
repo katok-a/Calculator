@@ -3,24 +3,23 @@ public class Calculators {
 
     float result;
     //Method for addition
-    public float add(float num1, float num2){
-        result = num1+num2;
-        return result;
+    private float add(float num1, float num2){
+        return num1+num2;
     }
     //Method for subtraction
-    public float subtract(float num1, float num2){
-        result = num1-num2;
-        return result;
+    private float subtract(float num1, float num2){
+        return num1-num2;
     }
     //Method for multiplication
-    public float multiply(float num1, float num2){
-        result = num1*num2;
-        return result;
+    private float multiply(float num1, float num2){
+        return num1*num2;
     }
     //Method for division
-    public float divide(float num1, float num2){
-        result = num1/num2;
-        return result;
+    private float divide(float num1, float num2){
+        if (num2 == 0) {
+            System.out.println("Formula is not valid");
+            return 0;
+        }else return num1/num2;
     }
 
     public float calculate(Formula formula) {
@@ -35,13 +34,7 @@ public class Calculators {
             case "+" -> result = add(formula.getX(), formula.getY());
             case "-" -> result = subtract(formula.getX(), formula.getY());
             case "*" -> result = multiply(formula.getX(), formula.getY());
-            case "/" -> {
-                if (formula.getY() == 0) {
-                    System.out.println("Formula is not valid");
-                    return 0;
-                }
-                result = divide(formula.getX(), formula.getY());
-            }
+            case "/" -> result = divide(formula.getX(), formula.getY());
         }
         return result;
     }

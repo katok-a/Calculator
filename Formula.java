@@ -3,6 +3,12 @@ public class Formula {
     private float y;
     private String op;
 
+    public Formula (float opr1, float opr2, String operator){
+        x = opr1;
+        y = opr2;
+        op = operator;
+    }
+
     public float getX(){
         return x;
     }
