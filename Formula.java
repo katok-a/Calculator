@@ -1,31 +1,29 @@
 public class Formula {
-    private float x;
-    private float y;
-    private String op;
+    private float operand1;
+    private float operand2;
+    private String operator;
 
-    public Formula (float opr1, float opr2, String operator){
-        x = opr1;
-        y = opr2;
-        op = operator;
+    public Formula (float opr1, float opr2, String oper){
+        operand1 = opr1;
+        operand2 = opr2;
+        operator = oper;
     }
 
-    public float getX(){
-        return x;
+    public float getOperand1(){
+        return operand1;
     }
-    public void setX(float x){
-        this.x = x;
+    public void setOperand1(float opr1){
+        this.operand1 = opr1;
     }
-    public float getY(){
-        return y;
+    public float getOperand2(){return operand2;}
+    public void setOperand2(float opr2){
+        this.operand2 = opr2;
     }
-    public void setY(float y){
-        this.y = y;
+    public String getOperator(){
+        return operator;
     }
-    public String getOp(){
-        return op;
-    }
-    public void setOp(String op){
-        this.op = op;
+    public void setOperator(String operator){
+        this.operator = operator;
     }
 }
 

@@ -26,15 +26,15 @@ public class Calculators {
 
 
         if (formula == null) return 0;
-        if (formula.getOp() == null || formula.getOp().isEmpty() || !"+-/*".contains(formula.getOp())) {
+        if (formula.getOperator() == null || formula.getOperator().isEmpty() || !"+-/*".contains(formula.getOperator())) {
             System.out.println("Formula is not valid: Unsupported operator "); return 0;
         }
 
-        switch (formula.getOp()) {
-            case "+" -> result = add(formula.getX(), formula.getY());
-            case "-" -> result = subtract(formula.getX(), formula.getY());
-            case "*" -> result = multiply(formula.getX(), formula.getY());
-            case "/" -> result = divide(formula.getX(), formula.getY());
+        switch (formula.getOperator()) {
+            case "+" -> result = add(formula.getOperand1(), formula.getOperand2());
+            case "-" -> result = subtract(formula.getOperand1(), formula.getOperand2());
+            case "*" -> result = multiply(formula.getOperand1(), formula.getOperand2());
+            case "/" -> result = divide(formula.getOperand1(), formula.getOperand2());
         }
         return result;
     }
