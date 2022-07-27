@@ -1,3 +1,7 @@
+import Calculators.Calculator;
+import Calculators.LocalCalculator;
+import Calculators.Formula;
+
 import java.util.Scanner;
 
 public class Main {
@@ -16,7 +20,7 @@ public class Main {
 
         Formula formula = new Formula(firstNumber, secondNumber, operator);
 
-        Calculators cal = new Calculators();
+        Calculator cal = new LocalCalculator();
 
         float result = cal.calculate(formula);
         System.out.println("Result = "+ result);
