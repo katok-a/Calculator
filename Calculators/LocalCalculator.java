@@ -1,34 +1,26 @@
 package Calculators;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LocalCalculator implements Calculator {
 
-    float result;
-    Add add;
-    Subtract subtract;
-    Multiply multiply;
-    Divide divide;
+    private Map<String, Operation> localOperationMap = new HashMap<>();
 
-    public LocalCalculator() {
-        this.add = new Add();
-        this.subtract = new Subtract();
-        this.multiply = new Multiply();
-        this.divide = new Divide();
-    }
 
     @Override
     public float calculate(Formula formula) {
-        if (formula == null) return 0;
-        if (formula.getOperator() == null || formula.getOperator().isEmpty() || !"+-/*".contains(formula.getOperator())) {
-            System.out.println("Calculators.Formula is not valid: Unsupported operator ");
-            return 0;
+        Operation operationMapValue = null;
+        if (localOperationMap.containsKey(formula.getOperator())) {
+            operationMapValue = localOperationMap.get(formula.getOperator());
+        } else {
+            System.out.println("Invalid operator");
         }
+        return operationMapValue.operate(formula.getOperand1(), formula.getOperand2());
+    }
 
-        switch (formula.getOperator()) {
-            case "+" -> result = add.operate(formula.getOperand1(), formula.getOperand2());
-            case "-" -> result = subtract.operate(formula.getOperand1(), formula.getOperand2());
-            case "*" -> result = multiply.operate(formula.getOperand1(), formula.getOperand2());
-            case "/" -> result = divide.operate(formula.getOperand1(), formula.getOperand2());
-        }
-        return result;
+    @Override
+    public void addOperator(Operator operator) {
+        localOperationMap.put(operator.getOperator(), operator.getOperatorMethod());
     }
 }
